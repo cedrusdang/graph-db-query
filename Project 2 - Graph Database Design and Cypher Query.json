@@ -1,0 +1,260 @@
+{
+  "style": {
+    "font-family": "sans-serif",
+    "background-color": "#ffffff",
+    "background-image": "",
+    "background-size": "100%",
+    "node-color": "#ffffff",
+    "border-width": 2,
+    "border-color": "#000000",
+    "radius": 90,
+    "node-padding": 5,
+    "node-margin": 2,
+    "outside-position": "auto",
+    "node-icon-image": "",
+    "node-background-image": "",
+    "icon-position": "inside",
+    "icon-size": 64,
+    "caption-position": "inside",
+    "caption-max-width": 200,
+    "caption-color": "#000000",
+    "caption-font-size": 18,
+    "caption-font-weight": "normal",
+    "label-position": "inside",
+    "label-display": "bare",
+    "label-color": "#000000",
+    "label-background-color": "#ffffff",
+    "label-border-color": "#000000",
+    "label-border-width": 4,
+    "label-font-size": 18,
+    "label-padding": 5,
+    "label-margin": 4,
+    "directionality": "directed",
+    "detail-position": "inline",
+    "detail-orientation": "parallel",
+    "arrow-width": 2,
+    "arrow-color": "#000000",
+    "margin-start": 0,
+    "margin-end": 0,
+    "margin-peer": 20,
+    "attachment-start": "normal",
+    "attachment-end": "normal",
+    "relationship-icon-image": "",
+    "type-color": "#000000",
+    "type-background-color": "#ffffff",
+    "type-border-color": "#000000",
+    "type-border-width": 0,
+    "type-font-size": 18,
+    "type-padding": 5,
+    "property-position": "inside",
+    "property-alignment": "colon",
+    "property-color": "#000000",
+    "property-font-size": 18,
+    "property-font-weight": "normal"
+  },
+  "nodes": [
+    {
+      "id": "n0",
+      "position": {
+        "x": 469.976454183794,
+        "y": 599.9999946052034
+      },
+      "caption": "",
+      "labels": [
+        "crash"
+      ],
+      "properties": {
+        "id": "",
+        "crash_id": "",
+        "number_fatalities": ""
+      },
+      "style": {
+        "border-color": "#73d8ff"
+      }
+    },
+    {
+      "id": "n1",
+      "position": {
+        "x": 139.859688203422,
+        "y": -64.40803877492439
+      },
+      "caption": "",
+      "labels": [],
+      "properties": {
+        "state": ""
+      },
+      "style": {
+        "border-color": "#f44e3b"
+      }
+    },
+    {
+      "id": "n2",
+      "position": {
+        "x": 739.5156595188893,
+        "y": 869.5392215194852
+      },
+      "caption": "",
+      "labels": [
+        "time"
+      ],
+      "properties": {
+        "year": "",
+        "month": "",
+        "dayweek": "",
+        "time": "",
+        "time_of_day": "",
+        "day_of_week": "",
+        "easter_period": "",
+        "christmas_period": ""
+      },
+      "style": {
+        "border-color": "#ab149e"
+      }
+    },
+    {
+      "id": "n3",
+      "position": {
+        "x": 739.5156703084825,
+        "y": 330.4607892701081
+      },
+      "caption": "",
+      "labels": [
+        "crash_type"
+      ],
+      "properties": {
+        "crash_type": "",
+        "bus_involvement": "",
+        "heavy_rigid_truck_involvement": "",
+        "articulated_truck_involvement": "",
+        "speed_limit": "",
+        "national_road_type": ""
+      },
+      "style": {
+        "border-color": "#fb9e00"
+      }
+    },
+    {
+      "id": "n5",
+      "position": {
+        "x": 200.43724884869874,
+        "y": 869.5392107298919
+      },
+      "caption": "",
+      "labels": [
+        "fatality"
+      ],
+      "properties": {
+        "road User": "",
+        "gender": "",
+        "age": "",
+        "age_group": ""
+      },
+      "style": {
+        "border-color": "#68bc00"
+      }
+    },
+    {
+      "id": "n6",
+      "position": {
+        "x": 139.859688203422,
+        "y": 409.40699090242697
+      },
+      "caption": "National Local Government Areas (LGAs) Name, 2024",
+      "labels": [],
+      "properties": {
+        "lga": ""
+      },
+      "style": {
+        "border-color": "#f44e3b"
+      }
+    },
+    {
+      "id": "n7",
+      "position": {
+        "x": 366.10226208021123,
+        "y": 183.16441702563776
+      },
+      "caption": "Statistical Areas Level 4 (SA4) Name, 2021",
+      "labels": [],
+      "properties": {
+        "sa4": ""
+      },
+      "style": {
+        "border-color": "#f44e3b"
+      }
+    },
+    {
+      "id": "n8",
+      "position": {
+        "x": -57.48432969151747,
+        "y": 183.16441702563776
+      },
+      "caption": "National Remoteness Areas, 2021",
+      "labels": [],
+      "properties": {
+        "nra": ""
+      },
+      "style": {
+        "border-color": "#f44e3b"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "n0",
+      "fromId": "n5",
+      "toId": "n0",
+      "type": "DIED_IN",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n2",
+      "fromId": "n0",
+      "toId": "n3",
+      "type": "CLASSIFIED_AS",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n3",
+      "fromId": "n0",
+      "toId": "n2",
+      "type": "HAPPENED_IN",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n4",
+      "fromId": "n0",
+      "toId": "n6",
+      "type": "LOCATED_IN",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n5",
+      "fromId": "n6",
+      "toId": "n7",
+      "type": "IN_SA4",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n6",
+      "fromId": "n7",
+      "toId": "n8",
+      "type": "IN_NRA",
+      "properties": {},
+      "style": {}
+    },
+    {
+      "id": "n7",
+      "fromId": "n8",
+      "toId": "n1",
+      "type": "In State",
+      "properties": {},
+      "style": {}
+    }
+  ]
+}
