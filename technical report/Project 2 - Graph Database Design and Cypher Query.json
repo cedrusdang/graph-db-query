@@ -107,7 +107,8 @@
         "year": "",
         "month": "",
         "dayweek": "",
-        "day_of_week": ""
+        "day_of_week": "",
+        "date_sk": ""
       },
       "style": {
         "border-color": "#ab149e",
@@ -222,8 +223,8 @@
         "holiday"
       ],
       "properties": {
-        "easter_period": "",
-        "christmas_period": "",
+        "easter": "",
+        "christmas": "",
         "holiday_sk": ""
       },
       "style": {
@@ -336,7 +337,8 @@
       ],
       "properties": {
         "hour": "",
-        "time_of_day": ""
+        "time_of_day": "",
+        "time_sk": ""
       },
       "style": {
         "node-color": "#0062b1"
