@@ -2,12 +2,13 @@ type crash {
   crash_id: 
   crash_sk: 
   classifiedAsCrashType: crash_type @relationship(type: "CLASSIFIED_AS", direction: OUT)
-  happenedInDate: date @relationship(type: "HAPPENED_IN", direction: OUT)
-  locatedInLga: lga @relationship(type: "LOCATED_IN", direction: OUT)
-  happenedInEventHoliday: holiday @relationship(type: "HAPPENED_IN_EVENT", direction: OUT)
-  happenedInConditionsRoadCondition: road_condition @relationship(type: "HAPPENED_IN_CONDITIONS", direction: OUT)
+  inDateDate: date @relationship(type: "IN_DATE", direction: OUT)
+  inLocationLga: lga @relationship(type: "IN_LOCATION", direction: OUT)
+  inEventHoliday: holiday @relationship(type: "IN_EVENT", direction: OUT)
+  inRoadTypeRoadType: road_type @relationship(type: "IN_ROAD_TYPE", direction: OUT)
   involveWithInvolvement: involvement @relationship(type: "INVOLVE_WITH", direction: OUT)
-  happenedInTimeTime: time @relationship(type: "HAPPENED_IN_TIME", direction: OUT)
+  inTimeTime: time @relationship(type: "IN_TIME", direction: OUT)
+  inSpeedLimitSpeedLimit: speed_limit @relationship(type: "IN_SPEED_LIMIT", direction: OUT)
   fatalityDiedIn: fatality @relationship(type: "DIED_IN", direction: IN)
 }
 
@@ -22,7 +23,7 @@ type date {
   month: 
   dayweek: 
   day_of_week: 
-  crashHappenedIn: crash @relationship(type: "HAPPENED_IN", direction: IN)
+  crashInDate: crash @relationship(type: "IN_DATE", direction: IN)
 }
 
 type crash_type {
@@ -43,7 +44,7 @@ type fatality {
 type lga {
   lga: 
   lga_sk: 
-  crashLocatedIn: crash @relationship(type: "LOCATED_IN", direction: IN)
+  crashInLocation: crash @relationship(type: "IN_LOCATION", direction: IN)
   inSa4Sa4: sa4 @relationship(type: "IN_SA4", direction: OUT)
 }
 
@@ -65,7 +66,7 @@ type holiday {
   easter_period: 
   christmas_period: 
   holiday_sk: 
-  crashHappenedInEvent: crash @relationship(type: "HAPPENED_IN_EVENT", direction: IN)
+  crashInEvent: crash @relationship(type: "IN_EVENT", direction: IN)
 }
 
 type age_group {
@@ -86,11 +87,10 @@ type road_user {
   fatalityRoadUserIs: fatality @relationship(type: "ROAD_USER_IS", direction: IN)
 }
 
-type road_condition {
-  speed_limit: 
-  national_road_type: 
-  road_condition_sk: 
-  crashHappenedInConditions: crash @relationship(type: "HAPPENED_IN_CONDITIONS", direction: IN)
+type road_type {
+  road_type: 
+  road_type_sk: 
+  crashInRoadType: crash @relationship(type: "IN_ROAD_TYPE", direction: IN)
 }
 
 type involvement {
@@ -104,5 +104,11 @@ type involvement {
 type time {
   hour: 
   time_of_day: 
-  crashHappenedInTime: crash @relationship(type: "HAPPENED_IN_TIME", direction: IN)
+  crashInTime: crash @relationship(type: "IN_TIME", direction: IN)
+}
+
+type speed_limit {
+  speed_limit: 
+  speed_limit_sk: 
+  crashInSpeedLimit: crash @relationship(type: "IN_SPEED_LIMIT", direction: IN)
 }

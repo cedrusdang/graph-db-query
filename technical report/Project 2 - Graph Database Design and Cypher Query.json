@@ -117,8 +117,8 @@
     {
       "id": "n3",
       "position": {
-        "x": -51.99680895056014,
-        "y": 133.5709815416506
+        "x": 143.7544637652846,
+        "y": 150.04312295220086
       },
       "caption": "",
       "labels": [
@@ -288,17 +288,16 @@
     {
       "id": "n14",
       "position": {
-        "x": -324.4864060560185,
-        "y": 260.7387821003672
+        "x": -342.8590394038068,
+        "y": 284.6536370009146
       },
       "caption": "",
       "labels": [
-        "road_condition"
+        "road_type"
       ],
       "properties": {
-        "speed_limit": "",
-        "national_road_type": "",
-        "road_condition_sk": ""
+        "road_type": "",
+        "road_type_sk": ""
       },
       "style": {
         "node-color": "#0062b1"
@@ -307,8 +306,8 @@
     {
       "id": "n15",
       "position": {
-        "x": 220.4927881548981,
-        "y": 260.7387821003672
+        "x": 303.80320504216706,
+        "y": 325.75232143484953
       },
       "caption": "",
       "labels": [
@@ -342,6 +341,24 @@
       "style": {
         "node-color": "#0062b1"
       }
+    },
+    {
+      "id": "n17",
+      "position": {
+        "x": -158.96001953598943,
+        "y": 150.04312295220083
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#0062b1"
+      },
+      "labels": [
+        "speed_limit"
+      ],
+      "properties": {
+        "speed_limit": "",
+        "speed_limit_sk": ""
+      }
     }
   ],
   "relationships": [
@@ -355,19 +372,19 @@
     },
     {
       "id": "n3",
-      "fromId": "n0",
-      "toId": "n2",
-      "type": "HAPPENED_IN",
+      "type": "IN_DATE",
+      "style": {},
       "properties": {},
-      "style": {}
+      "fromId": "n0",
+      "toId": "n2"
     },
     {
       "id": "n4",
-      "fromId": "n0",
-      "toId": "n6",
-      "type": "LOCATED_IN",
+      "type": "IN_LOCATION",
+      "style": {},
       "properties": {},
-      "style": {}
+      "fromId": "n0",
+      "toId": "n6"
     },
     {
       "id": "n5",
@@ -419,7 +436,7 @@
     },
     {
       "id": "n11",
-      "type": "HAPPENED_IN_EVENT",
+      "type": "IN_EVENT",
       "style": {},
       "properties": {},
       "fromId": "n0",
@@ -427,7 +444,7 @@
     },
     {
       "id": "n13",
-      "type": "HAPPENED_IN_CONDITIONS",
+      "type": "IN_ROAD_TYPE",
       "style": {},
       "properties": {},
       "fromId": "n0",
@@ -443,7 +460,7 @@
     },
     {
       "id": "n15",
-      "type": "HAPPENED_IN_TIME",
+      "type": "IN_TIME",
       "style": {},
       "properties": {},
       "fromId": "n0",
@@ -456,6 +473,14 @@
       "properties": {},
       "fromId": "n5",
       "toId": "n0"
+    },
+    {
+      "id": "n17",
+      "type": "IN_SPEED_LIMIT",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n17"
     }
   ]
 }
