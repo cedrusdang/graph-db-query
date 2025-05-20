@@ -1,13 +1,13 @@
 {
   "style": {
     "font-family": "sans-serif",
-    "background-color": "#ffffff",
+    "background-color": "#F2F2F2",
     "background-image": "",
     "background-size": "100%",
-    "node-color": "#ffffff",
-    "border-width": 2,
+    "node-color": "#4C8EDA",
+    "border-width": 0,
     "border-color": "#000000",
-    "radius": 90,
+    "radius": 75,
     "node-padding": 5,
     "node-margin": 2,
     "outside-position": "auto",
@@ -17,105 +17,108 @@
     "icon-size": 64,
     "caption-position": "inside",
     "caption-max-width": 200,
-    "caption-color": "#000000",
-    "caption-font-size": 18,
+    "caption-color": "#ffffff",
+    "caption-font-size": 20,
     "caption-font-weight": "normal",
     "label-position": "inside",
     "label-display": "bare",
-    "label-color": "#000000",
-    "label-background-color": "#ffffff",
-    "label-border-color": "#000000",
-    "label-border-width": 4,
-    "label-font-size": 18,
+    "label-color": "#ffffff",
+    "label-background-color": "#848484",
+    "label-border-color": "#ffffff",
+    "label-border-width": 3,
+    "label-font-size": 25,
     "label-padding": 5,
-    "label-margin": 4,
+    "label-margin": 2,
     "directionality": "directed",
     "detail-position": "inline",
-    "detail-orientation": "parallel",
-    "arrow-width": 2,
-    "arrow-color": "#000000",
-    "margin-start": 0,
-    "margin-end": 0,
-    "margin-peer": 20,
+    "detail-orientation": "horizontal",
+    "arrow-width": 3,
+    "arrow-color": "#194d33",
+    "margin-start": 5,
+    "margin-end": 5,
+    "margin-peer": 5,
     "attachment-start": "normal",
     "attachment-end": "normal",
     "relationship-icon-image": "",
     "type-color": "#000000",
-    "type-background-color": "#ffffff",
-    "type-border-color": "#000000",
-    "type-border-width": 0,
-    "type-font-size": 18,
+    "type-background-color": "#F2F2F2",
+    "type-border-color": "#848484",
+    "type-border-width": 1,
+    "type-font-size": 15,
     "type-padding": 5,
     "property-position": "inside",
     "property-alignment": "colon",
-    "property-color": "#000000",
-    "property-font-size": 18,
+    "property-color": "#ffffff",
+    "property-font-size": 20,
     "property-font-weight": "normal"
   },
   "nodes": [
     {
       "id": "n0",
       "position": {
-        "x": 469.976454183794,
-        "y": 599.9999946052034
+        "x": -51.99680895056014,
+        "y": 489.09427294231534
       },
       "caption": "",
       "labels": [
         "crash"
       ],
       "properties": {
-        "id": "",
         "crash_id": "",
-        "number_fatalities": ""
+        "crash_sk": ""
       },
       "style": {
-        "border-color": "#73d8ff"
+        "border-color": "#73d8ff",
+        "node-color": "#c45100",
+        "property-position": "inside",
+        "property-color": "#ffffff"
       }
     },
     {
       "id": "n1",
       "position": {
-        "x": 139.859688203422,
-        "y": -64.40803877492439
+        "x": -865.7562036024356,
+        "y": 489.0942729423153
       },
       "caption": "",
-      "labels": [],
+      "labels": [
+        "state"
+      ],
       "properties": {
-        "state": ""
+        "state": "",
+        "state_sk": ""
       },
       "style": {
-        "border-color": "#f44e3b"
+        "border-color": "#f44e3b",
+        "node-color": "#653294"
       }
     },
     {
       "id": "n2",
       "position": {
-        "x": 739.5156595188893,
-        "y": 869.5392215194852
+        "x": 220.4927881548981,
+        "y": 717.4497637842634
       },
       "caption": "",
       "labels": [
-        "time"
+        "date"
       ],
       "properties": {
         "year": "",
         "month": "",
         "dayweek": "",
-        "time": "",
-        "time_of_day": "",
-        "day_of_week": "",
-        "easter_period": "",
-        "christmas_period": ""
+        "day_of_week": ""
       },
       "style": {
-        "border-color": "#ab149e"
+        "border-color": "#ab149e",
+        "node-color": "#0062b1"
       }
     },
     {
       "id": "n3",
       "position": {
-        "x": 739.5156703084825,
-        "y": 330.4607892701081
+        "x": -51.99680895056014,
+        "y": 133.5709815416506
       },
       "caption": "",
       "labels": [
@@ -123,91 +126,225 @@
       ],
       "properties": {
         "crash_type": "",
-        "bus_involvement": "",
-        "heavy_rigid_truck_involvement": "",
-        "articulated_truck_involvement": "",
-        "speed_limit": "",
-        "national_road_type": ""
+        "crash_type_sk": ""
       },
       "style": {
-        "border-color": "#fb9e00"
+        "border-color": "#fb9e00",
+        "node-color": "#0062b1"
       }
     },
     {
       "id": "n5",
       "position": {
-        "x": 200.43724884869874,
-        "y": 869.5392107298919
+        "x": 513.043445032004,
+        "y": 489.0942729423153
       },
       "caption": "",
       "labels": [
         "fatality"
       ],
       "properties": {
-        "road User": "",
-        "gender": "",
         "age": "",
-        "age_group": ""
+        "fatality_sk": ""
       },
       "style": {
-        "border-color": "#68bc00"
+        "border-color": "#68bc00",
+        "node-color": "#9f0500",
+        "property-color": "#ffffff",
+        "property-position": "inside"
       }
     },
     {
       "id": "n6",
       "position": {
-        "x": 139.859688203422,
-        "y": 409.40699090242697
+        "x": -443.4993543822497,
+        "y": 489.09427294231534
       },
-      "caption": "National Local Government Areas (LGAs) Name, 2024",
-      "labels": [],
+      "caption": "",
+      "labels": [
+        "lga"
+      ],
       "properties": {
-        "lga": ""
+        "lga": "",
+        "lga_sk": ""
       },
       "style": {
-        "border-color": "#f44e3b"
+        "border-color": "#f44e3b",
+        "node-color": "#0062b1"
       }
     },
     {
       "id": "n7",
       "position": {
-        "x": 366.10226208021123,
-        "y": 183.16441702563776
+        "x": -635.6153075821402,
+        "y": 681.2102261422058
       },
-      "caption": "Statistical Areas Level 4 (SA4) Name, 2021",
-      "labels": [],
+      "caption": "",
+      "labels": [
+        "sa4"
+      ],
       "properties": {
-        "sa4": ""
+        "sa4": "",
+        "sa4_sk": ""
       },
       "style": {
-        "border-color": "#f44e3b"
+        "border-color": "#f44e3b",
+        "node-color": "#194d33"
       }
     },
     {
       "id": "n8",
       "position": {
-        "x": -57.48432969151747,
-        "y": 183.16441702563776
+        "x": -635.6153075821402,
+        "y": 258.95337692201986
       },
-      "caption": "National Remoteness Areas, 2021",
-      "labels": [],
+      "caption": "",
+      "labels": [
+        "nra"
+      ],
       "properties": {
-        "nra": ""
+        "nra": "",
+        "nra_sk": ""
       },
       "style": {
-        "border-color": "#f44e3b"
+        "border-color": "#f44e3b",
+        "node-color": "#808900"
+      }
+    },
+    {
+      "id": "n10",
+      "position": {
+        "x": -51.99680895056014,
+        "y": 844.6175643429801
+      },
+      "caption": "",
+      "labels": [
+        "holiday"
+      ],
+      "properties": {
+        "easter_period": "",
+        "christmas_period": "",
+        "holiday_sk": ""
+      },
+      "style": {
+        "property-alignment": "colon",
+        "node-color": "#0062b1"
+      }
+    },
+    {
+      "id": "n11",
+      "position": {
+        "x": 513.043445032004,
+        "y": 177.52275175250298
+      },
+      "caption": "",
+      "labels": [
+        "age_group"
+      ],
+      "properties": {
+        "age_group": "",
+        "age_group_sk": ""
+      },
+      "style": {
+        "node-color": "#0c797d"
+      }
+    },
+    {
+      "id": "n12",
+      "position": {
+        "x": 824.6149662218163,
+        "y": 489.09427294231523
+      },
+      "caption": "",
+      "labels": [
+        "gender"
+      ],
+      "properties": {
+        "gender": "",
+        "gender_sk": ""
+      },
+      "style": {
+        "node-color": "#0c797d"
+      }
+    },
+    {
+      "id": "n13",
+      "position": {
+        "x": 513.043445032004,
+        "y": 800.6657941321275
+      },
+      "caption": "",
+      "labels": [
+        "road_user"
+      ],
+      "properties": {
+        "road_user": "",
+        "road_sk": ""
+      },
+      "style": {
+        "node-color": "#0c797d"
+      }
+    },
+    {
+      "id": "n14",
+      "position": {
+        "x": -324.4864060560185,
+        "y": 260.7387821003672
+      },
+      "caption": "",
+      "labels": [
+        "road_condition"
+      ],
+      "properties": {
+        "speed_limit": "",
+        "national_road_type": "",
+        "road_condition_sk": ""
+      },
+      "style": {
+        "node-color": "#0062b1"
+      }
+    },
+    {
+      "id": "n15",
+      "position": {
+        "x": 220.4927881548981,
+        "y": 260.7387821003672
+      },
+      "caption": "",
+      "labels": [
+        "involvement"
+      ],
+      "properties": {
+        "bus": "",
+        "heavy_rigid_truck": "",
+        "articulated_truck": "",
+        "involvement_sk": ""
+      },
+      "style": {
+        "border-color": "#fb9e00",
+        "node-color": "#0062b1"
+      }
+    },
+    {
+      "id": "n16",
+      "position": {
+        "x": -324.48640605601827,
+        "y": 717.4497637842634
+      },
+      "caption": "",
+      "labels": [
+        "time"
+      ],
+      "properties": {
+        "hour": "",
+        "time_of_day": ""
+      },
+      "style": {
+        "node-color": "#0062b1"
       }
     }
   ],
   "relationships": [
-    {
-      "id": "n0",
-      "fromId": "n5",
-      "toId": "n0",
-      "type": "DIED_IN",
-      "properties": {},
-      "style": {}
-    },
     {
       "id": "n2",
       "fromId": "n0",
@@ -250,11 +387,75 @@
     },
     {
       "id": "n7",
-      "fromId": "n8",
-      "toId": "n1",
-      "type": "In State",
+      "type": "IN_STATE",
+      "style": {},
       "properties": {},
-      "style": {}
+      "fromId": "n8",
+      "toId": "n1"
+    },
+    {
+      "id": "n8",
+      "type": "AGE_IS",
+      "style": {},
+      "properties": {},
+      "fromId": "n5",
+      "toId": "n11"
+    },
+    {
+      "id": "n9",
+      "type": "GENDER_IS",
+      "style": {},
+      "properties": {},
+      "fromId": "n5",
+      "toId": "n12"
+    },
+    {
+      "id": "n10",
+      "type": "ROAD_USER_IS",
+      "style": {},
+      "properties": {},
+      "fromId": "n5",
+      "toId": "n13"
+    },
+    {
+      "id": "n11",
+      "type": "HAPPENED_IN_EVENT",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n10"
+    },
+    {
+      "id": "n13",
+      "type": "HAPPENED_IN_CONDITIONS",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n14"
+    },
+    {
+      "id": "n14",
+      "type": "INVOLVE_WITH",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n15"
+    },
+    {
+      "id": "n15",
+      "type": "HAPPENED_IN_TIME",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n16"
+    },
+    {
+      "id": "n16",
+      "type": "DIED_IN",
+      "style": {},
+      "properties": {},
+      "fromId": "n5",
+      "toId": "n0"
     }
   ]
 }

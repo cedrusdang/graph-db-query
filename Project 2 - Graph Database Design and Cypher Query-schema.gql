@@ -1,0 +1,108 @@
+type crash {
+  crash_id: 
+  crash_sk: 
+  classifiedAsCrashType: crash_type @relationship(type: "CLASSIFIED_AS", direction: OUT)
+  happenedInDate: date @relationship(type: "HAPPENED_IN", direction: OUT)
+  locatedInLga: lga @relationship(type: "LOCATED_IN", direction: OUT)
+  happenedInEventHoliday: holiday @relationship(type: "HAPPENED_IN_EVENT", direction: OUT)
+  happenedInConditionsRoadCondition: road_condition @relationship(type: "HAPPENED_IN_CONDITIONS", direction: OUT)
+  involveWithInvolvement: involvement @relationship(type: "INVOLVE_WITH", direction: OUT)
+  happenedInTimeTime: time @relationship(type: "HAPPENED_IN_TIME", direction: OUT)
+  fatalityDiedIn: fatality @relationship(type: "DIED_IN", direction: IN)
+}
+
+type state {
+  state: 
+  state_sk: 
+  nraInState: nra @relationship(type: "IN_STATE", direction: IN)
+}
+
+type date {
+  year: 
+  month: 
+  dayweek: 
+  day_of_week: 
+  crashHappenedIn: crash @relationship(type: "HAPPENED_IN", direction: IN)
+}
+
+type crash_type {
+  crash_type: 
+  crash_type_sk: 
+  crashClassifiedAs: crash @relationship(type: "CLASSIFIED_AS", direction: IN)
+}
+
+type fatality {
+  age: 
+  fatality_sk: 
+  ageIsAgeGroup: age_group @relationship(type: "AGE_IS", direction: OUT)
+  genderIsGender: gender @relationship(type: "GENDER_IS", direction: OUT)
+  roadUserIsRoadUser: road_user @relationship(type: "ROAD_USER_IS", direction: OUT)
+  diedInCrash: crash @relationship(type: "DIED_IN", direction: OUT)
+}
+
+type lga {
+  lga: 
+  lga_sk: 
+  crashLocatedIn: crash @relationship(type: "LOCATED_IN", direction: IN)
+  inSa4Sa4: sa4 @relationship(type: "IN_SA4", direction: OUT)
+}
+
+type sa4 {
+  sa4: 
+  sa4_sk: 
+  lgaInSa4: lga @relationship(type: "IN_SA4", direction: IN)
+  inNraNra: nra @relationship(type: "IN_NRA", direction: OUT)
+}
+
+type nra {
+  nra: 
+  nra_sk: 
+  sa4InNra: sa4 @relationship(type: "IN_NRA", direction: IN)
+  inStateState: state @relationship(type: "IN_STATE", direction: OUT)
+}
+
+type holiday {
+  easter_period: 
+  christmas_period: 
+  holiday_sk: 
+  crashHappenedInEvent: crash @relationship(type: "HAPPENED_IN_EVENT", direction: IN)
+}
+
+type age_group {
+  age_group: 
+  age_group_sk: 
+  fatalityAgeIs: fatality @relationship(type: "AGE_IS", direction: IN)
+}
+
+type gender {
+  gender: 
+  gender_sk: 
+  fatalityGenderIs: fatality @relationship(type: "GENDER_IS", direction: IN)
+}
+
+type road_user {
+  road_user: 
+  road_sk: 
+  fatalityRoadUserIs: fatality @relationship(type: "ROAD_USER_IS", direction: IN)
+}
+
+type road_condition {
+  speed_limit: 
+  national_road_type: 
+  road_condition_sk: 
+  crashHappenedInConditions: crash @relationship(type: "HAPPENED_IN_CONDITIONS", direction: IN)
+}
+
+type involvement {
+  bus: 
+  heavy_rigid_truck: 
+  articulated_truck: 
+  involvement_sk: 
+  crashInvolveWith: crash @relationship(type: "INVOLVE_WITH", direction: IN)
+}
+
+type time {
+  hour: 
+  time_of_day: 
+  crashHappenedInTime: crash @relationship(type: "HAPPENED_IN_TIME", direction: IN)
+}
