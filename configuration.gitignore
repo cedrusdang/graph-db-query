@@ -1,4 +1,3 @@
 # Secrets
 .env
-postgressql_secretkeys.env
-# Local configuration files
+neo4j_secretkeys.env
