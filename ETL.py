@@ -13,9 +13,6 @@ def extract(file_name: str, drop_na: bool = True) -> pd.DataFrame:
     # Drop rows that contain na if needed
     if drop_na:
         data.dropna()
-    
-    # Ensure all cols is string (Before further transformation)
-    data = data.astype(str)
 
     return(data)
 
