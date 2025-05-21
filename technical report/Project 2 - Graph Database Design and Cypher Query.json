@@ -280,7 +280,7 @@
       ],
       "properties": {
         "road_user": "",
-        "road_sk": ""
+        "road_user_sk": ""
       },
       "style": {
         "node-color": "#0c797d"
@@ -336,9 +336,7 @@
         "time"
       ],
       "properties": {
-        "hour": "",
-        "time_of_day": "",
-        "time_sk": ""
+        "hour": ""
       },
       "style": {
         "node-color": "#0062b1"
@@ -358,8 +356,7 @@
         "speed_limit"
       ],
       "properties": {
-        "speed_limit": "",
-        "speed_limit_sk": ""
+        "speed_limit": ""
       }
     }
   ],

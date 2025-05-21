@@ -84,7 +84,7 @@ type gender {
 
 type road_user {
   road_user: 
-  road_sk: 
+  road_user_sk: 
   fatalityRoadUserIs: fatality @relationship(type: "ROAD_USER_IS", direction: IN)
 }
 
@@ -104,13 +104,10 @@ type involvement {
 
 type time {
   hour: 
-  time_of_day: 
-  time_sk: 
   crashInTime: crash @relationship(type: "IN_TIME", direction: IN)
 }
 
 type speed_limit {
   speed_limit: 
-  speed_limit_sk: 
   crashInSpeedLimit: crash @relationship(type: "IN_SPEED_LIMIT", direction: IN)
 }

@@ -1,6 +1,4 @@
-pandas==2.2.3
-openpyxl==3.1.5
-SQLAlchemy==2.0.40
-psycopg2-binary==2.9.10
-dotenv==0.9.9
-mlxtend==0.21.0
+pandas==2.2.2
+neo4j==5.19.0
+python-dotenv==1.0.1
+tqdm==4.66.4

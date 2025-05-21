@@ -1,0 +1,7 @@
+age_group_sk,age_group
+1,0_to_16
+2,17_to_25
+3,26_to_39
+4,40_to_64
+5,65_to_74
+6,75_or_older
