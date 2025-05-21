@@ -65,6 +65,7 @@
       ],
       "properties": {
         "crash_id": "",
+        "fatalities": "",
         "crash_sk": ""
       },
       "style": {
@@ -336,7 +337,8 @@
         "time"
       ],
       "properties": {
-        "hour": ""
+        "hour": "",
+        "time_of_day": ""
       },
       "style": {
         "node-color": "#0062b1"

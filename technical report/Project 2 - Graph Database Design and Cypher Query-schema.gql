@@ -1,5 +1,6 @@
 type crash {
   crash_id: 
+  fatalities: 
   crash_sk: 
   classifiedAsCrashType: crash_type @relationship(type: "CLASSIFIED_AS", direction: OUT)
   inDateDate: date @relationship(type: "IN_DATE", direction: OUT)
@@ -104,6 +105,7 @@ type involvement {
 
 type time {
   hour: 
+  time_of_day: 
   crashInTime: crash @relationship(type: "IN_TIME", direction: IN)
 }
 

@@ -296,4 +296,4 @@ if __name__ == "__main__":
 
     # Runtime report
     end_time = time.time()
-    print(f"--- Total runtime: {end_time - start_time:.2f} seconds ---")
+    print(f"--- Total runtime: {end_time - start_time:.2f} seconds ---")gi
