@@ -78,8 +78,8 @@
     {
       "id": "n1",
       "position": {
-        "x": -865.7562036024356,
-        "y": 489.0942729423153
+        "x": -641.1645753759549,
+        "y": 800.6657941321275
       },
       "caption": "",
       "labels": [
@@ -159,8 +159,8 @@
     {
       "id": "n6",
       "position": {
-        "x": -443.4993543822497,
-        "y": 489.09427294231534
+        "x": -407.7968229432874,
+        "y": 652.4362244497811
       },
       "caption": "",
       "labels": [
@@ -173,44 +173,6 @@
       "style": {
         "border-color": "#f44e3b",
         "node-color": "#0062b1"
-      }
-    },
-    {
-      "id": "n7",
-      "position": {
-        "x": -635.6153075821402,
-        "y": 681.2102261422058
-      },
-      "caption": "",
-      "labels": [
-        "sa4"
-      ],
-      "properties": {
-        "sa4": "",
-        "sa4_sk": ""
-      },
-      "style": {
-        "border-color": "#f44e3b",
-        "node-color": "#194d33"
-      }
-    },
-    {
-      "id": "n8",
-      "position": {
-        "x": -635.6153075821402,
-        "y": 258.95337692201986
-      },
-      "caption": "",
-      "labels": [
-        "nra"
-      ],
-      "properties": {
-        "nra": "",
-        "nra_sk": ""
-      },
-      "style": {
-        "border-color": "#f44e3b",
-        "node-color": "#808900"
       }
     },
     {
@@ -329,8 +291,8 @@
     {
       "id": "n16",
       "position": {
-        "x": -324.48640605601827,
-        "y": 717.4497637842634
+        "x": -271.7470318217737,
+        "y": 813.1067458928858
       },
       "caption": "",
       "labels": [
@@ -360,6 +322,42 @@
       "properties": {
         "speed_limit": ""
       }
+    },
+    {
+      "id": "n18",
+      "position": {
+        "x": -441.69785604965074,
+        "y": 451.5797828169703
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#0062b1"
+      },
+      "labels": [
+        "nra"
+      ],
+      "properties": {
+        "nra": "",
+        "nra_sk": ""
+      }
+    },
+    {
+      "id": "n19",
+      "position": {
+        "x": -641.1645753759549,
+        "y": 489.09427294231534
+      },
+      "caption": "",
+      "style": {
+        "node-color": "#c45100"
+      },
+      "labels": [
+        "sa4"
+      ],
+      "properties": {
+        "sa4": "",
+        "sa4_sk": ""
+      }
     }
   ],
   "relationships": [
@@ -386,30 +384,6 @@
       "properties": {},
       "fromId": "n0",
       "toId": "n6"
-    },
-    {
-      "id": "n5",
-      "fromId": "n6",
-      "toId": "n7",
-      "type": "IN_SA4",
-      "properties": {},
-      "style": {}
-    },
-    {
-      "id": "n6",
-      "fromId": "n7",
-      "toId": "n8",
-      "type": "IN_NRA",
-      "properties": {},
-      "style": {}
-    },
-    {
-      "id": "n7",
-      "type": "IN_STATE",
-      "style": {},
-      "properties": {},
-      "fromId": "n8",
-      "toId": "n1"
     },
     {
       "id": "n8",
@@ -482,6 +456,38 @@
       "properties": {},
       "fromId": "n0",
       "toId": "n17"
+    },
+    {
+      "id": "n20",
+      "type": "IN_NRA",
+      "style": {},
+      "properties": {},
+      "fromId": "n0",
+      "toId": "n18"
+    },
+    {
+      "id": "n24",
+      "type": "IN_STATE",
+      "style": {},
+      "properties": {},
+      "fromId": "n19",
+      "toId": "n1"
+    },
+    {
+      "id": "n25",
+      "type": "HAS_LGA",
+      "style": {},
+      "properties": {},
+      "fromId": "n1",
+      "toId": "n6"
+    },
+    {
+      "id": "n26",
+      "type": "IN_SA4",
+      "style": {},
+      "properties": {},
+      "fromId": "n6",
+      "toId": "n19"
     }
   ]
 }

@@ -7,6 +7,14 @@ from dotenv import load_dotenv
 from tqdm import tqdm
 import time
 
+# This scrip can auto or manual load the nodes and relationship:
+
+# Save to csv files
+save_csv = True
+# Autoload to NEO4J by Python, as required, the auto_load is disable, but the ETL_showcase.ipynb shows how it work
+# Normally, auto loading is recommended instead of manual loading like in this default sample.
+auto_load = False
+
 # EXTRACT #
 
 def extract(file_name: str, drop_na: bool = True) -> pd.DataFrame:
@@ -122,7 +130,7 @@ def extract_rel_tables(data, rel_schema, save_csv=True):
             "dst_key": dst_key
         }
         if save_csv and not rel_df.empty:
-            save_to_csv(rel_df, rel)   # <--- Use your save_to_csv here!
+            save_to_csv(rel_df, rel)
     return rel_tables
 
 # LOAD
@@ -184,7 +192,7 @@ def load_relationships(rel_tables, driver, batch_size=1000):
 # with be loaded and droped write always 
 
 # From Transformation to Loading Pipeline
-def create_table_load(data: pd.DataFrame, cols_sets: dict, table_name:str, driver,
+def create_table_load(data: pd.DataFrame, cols_sets: dict, table_name:str, driver, auto_load,
                        sk:bool = True, save_csv:bool = True, batch_size: int = 1000):
     # To create table and then load to Neo4J
     ## Create table:
@@ -197,14 +205,34 @@ def create_table_load(data: pd.DataFrame, cols_sets: dict, table_name:str, drive
     if save_csv:
         save_to_csv(dim_df, table_name)
     ## Load to Neo4J
-    load_table(dim_df, table_name, driver, batch_size=batch_size)
+    if auto_load:
+        load_table(dim_df, table_name, driver, batch_size=batch_size)
     return data
 
-def create_rel_load(data, driver, rel_schema, save_csv=True, batch_size=1000):
+def create_table_load_LGA(data: pd.DataFrame, cols_sets: dict, table_name:str, driver, auto_load,
+                       sk:bool = True, save_csv:bool = True, batch_size: int = 1000):
+    # NOTE: This is only for LGA as there is mutiple LGA in different SA4 and State
+    # To create table and then load to Neo4J
+    ## Create table:
+    dim_df, data = create_table(data, cols_sets, table_name, sk)
+
+    ## Change all cols to string to ensure MATCH will work
+    dim_df = dim_df.astype(str)
+    dim_df = dim_df[["lga_sk","lga"]]
+    ## Save to csv files
+    if save_csv:
+        save_to_csv(dim_df, table_name)
+    ## Load to Neo4J
+    if auto_load:
+        load_table(dim_df, table_name, driver, batch_size=batch_size)
+    return data
+
+def create_rel_load(data, driver, rel_schema, auto_load, save_csv=True, batch_size=1000):
     # Extract relationship tables and optionally save as CSV
     rel_tables = extract_rel_tables(data, rel_schema, save_csv=save_csv)
     # Batch load relationships into Neo4j
-    load_relationships(rel_tables, driver, batch_size=batch_size)
+    if auto_load:
+        load_relationships(rel_tables, driver, batch_size=batch_size)
 
 ##############################################################################
 
@@ -234,7 +262,6 @@ if __name__ == "__main__":
         "date": ["dayweek", "day_of_week", "month", "year", ],
         "crash_type": ["crash_type"],
         "holiday": ["easter", "christmas"],
-        "lga": ["lga"],
         "sa4": ["sa4"],
         "nra": ["nra"],
         "state": ["state"],
@@ -244,12 +271,11 @@ if __name__ == "__main__":
         "involvement": ["bus", "heavy_rigid_truck", "articulated_truck"],
         "road_type": ["road_type"],
         "speed_limit": ["speed_limit"],
-        "time": ["hour"],
+        "time": ["hour", "time_of_day"],
         "crash": ["crash_id","fatalities"],
-        "fatality": ["fatality_sk"]
+        "fatality": ["fatality_sk", "age"],
     }
-
-    # All dims with sk
+    # All dims with sk (surrogate keys)
     dim_names = [
         "date", "crash_type", "holiday", "lga", "sa4", "nra", "state",
         "gender", "age_group", "road_user", "involvement", "road_type"
@@ -259,12 +285,16 @@ if __name__ == "__main__":
 
     # Create and Load the dim nodes
     for name in dim_names:
-        data = create_table_load(data, tables_cols_sets, name, driver, sk=True)
+        data = create_table_load(data, tables_cols_sets, name, driver, auto_load = auto_load, sk=True, save_csv = save_csv)
     for name in dim_names_no_sk:
-        data = create_table_load(data, tables_cols_sets, name, driver, sk=False)
-    # Load the fact nodes
-    data = create_table_load(data, tables_cols_sets, "crash", driver, sk=True)
-    data = create_table_load(data, tables_cols_sets, "fatality", driver, sk=False)
+        data = create_table_load(data, tables_cols_sets, name, driver, auto_load = auto_load, sk=False, save_csv = save_csv)
+
+    # NOTE: FOR LGA ONLY
+    data = create_table_load_LGA(data, {"lga": ["lga","sa4","state"]}, name, driver, auto_load = auto_load, sk=False, save_csv = save_csv)
+
+    # Load the fact nodes (sk and no sk)
+    data = create_table_load(data, tables_cols_sets, "crash", driver, auto_load = auto_load, sk=True, save_csv = save_csv)
+    data = create_table_load(data, tables_cols_sets, "fatality", driver, auto_load = auto_load, sk=False, save_csv = save_csv)
 
     ####################################
     # RELATIONSHIPS TRANSFORM AND LOAD #
@@ -288,12 +318,13 @@ if __name__ == "__main__":
         13: ["INVOLVE_WITH", "crash", "crash_sk", "involvement", "involvement_sk"],
         14: ["IN_ROAD_TYPE", "crash", "crash_sk", "road_type", "road_type_sk"],
         15: ["IN_TIME", "crash", "crash_sk", "time", "hour"]
+        16: 
     }
 
-    create_rel_load(data, driver, rel_schema) # Create the rel and load
+    create_rel_load(data, driver, rel_schema, auto_load = auto_load, save_csv = save_csv) # Create the rel and load
 
     driver.close() # Close the NEO4J connection
 
     # Runtime report
     end_time = time.time()
-    print(f"--- Total runtime: {end_time - start_time:.2f} seconds ---")gi
+    print(f"--- Total runtime: {end_time - start_time:.2f} seconds ---")

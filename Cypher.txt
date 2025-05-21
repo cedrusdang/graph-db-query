@@ -1,0 +1,270 @@
+# Here is all the code for loading nodes, relationships and queries:
+# All the loading for nodes and relationships can be auto-loaded.
+# But in default will be disable, except in the showcase file (JPT file)
+
+# For manual loading, please change the path to the correct folder (Default import folder of NEO4J)
+# Default import folder for NEO4J can be access using the GUI
+# (Database menu (near the open btn) -> Open folder -> Import)
+
+// 1/3: --- NODE LOADERS ---
+
+// date
+LOAD CSV WITH HEADERS FROM 'file:///date.csv' AS row
+MERGE (:date {
+  year: row.year, 
+  month: row.month, 
+  dayweek: row.dayweek, 
+  day_of_week: row.day_of_week, 
+  date_sk: row.date_sk
+});
+
+// crash_type
+LOAD CSV WITH HEADERS FROM 'file:///crash_type.csv' AS row
+MERGE (:crash_type {
+  crash_type: row.crash_type, 
+  crash_type_sk: row.crash_type_sk
+});
+
+// holiday
+LOAD CSV WITH HEADERS FROM 'file:///holiday.csv' AS row
+MERGE (:holiday {
+  easter: row.easter, 
+  christmas: row.christmas, 
+  holiday_sk: row.holiday_sk
+});
+
+// lga
+LOAD CSV WITH HEADERS FROM 'file:///lga.csv' AS row
+MERGE (:lga {
+  lga: row.lga, 
+  lga_sk: row.lga_sk
+});
+
+// sa4
+LOAD CSV WITH HEADERS FROM 'file:///sa4.csv' AS row
+MERGE (:sa4 {
+  sa4: row.sa4, 
+  sa4_sk: row.sa4_sk
+});
+
+// nra
+LOAD CSV WITH HEADERS FROM 'file:///nra.csv' AS row
+MERGE (:nra {
+  nra: row.nra, 
+  nra_sk: row.nra_sk
+});
+
+// state
+LOAD CSV WITH HEADERS FROM 'file:///state.csv' AS row
+MERGE (:state {
+  state: row.state, 
+  state_sk: row.state_sk
+});
+
+// gender
+LOAD CSV WITH HEADERS FROM 'file:///gender.csv' AS row
+MERGE (:gender {
+  gender: row.gender, 
+  gender_sk: row.gender_sk
+});
+
+// age_group
+LOAD CSV WITH HEADERS FROM 'file:///age_group.csv' AS row
+MERGE (:age_group {
+  age_group: row.age_group, 
+  age_group_sk: row.age_group_sk
+});
+
+// road_user
+LOAD CSV WITH HEADERS FROM 'file:///road_user.csv' AS row
+MERGE (:road_user {
+  road_user: row.road_user, 
+  road_user_sk: row.road_user_sk
+});
+
+// speed_limit
+LOAD CSV WITH HEADERS FROM 'file:///speed_limit.csv' AS row
+MERGE (:speed_limit {
+  speed_limit: row.speed_limit
+});
+
+// involvement
+LOAD CSV WITH HEADERS FROM 'file:///involvement.csv' AS row
+MERGE (:involvement {
+  bus: row.bus, 
+  heavy_rigid_truck: row.heavy_rigid_truck, 
+  articulated_truck: row.articulated_truck, 
+  involvement_sk: row.involvement_sk
+});
+
+// road_type
+LOAD CSV WITH HEADERS FROM 'file:///road_type.csv' AS row
+MERGE (:road_type {
+  road_type: row.road_type, 
+  road_type_sk: row.road_type_sk
+});
+
+// time
+LOAD CSV WITH HEADERS FROM 'file:///time.csv' AS row
+MERGE (:time {
+  hour: row.hour, 
+  time_of_day: row.time_of_day
+});
+
+// crash (fact)
+LOAD CSV WITH HEADERS FROM 'file:///crash.csv' AS row
+MERGE (:crash {
+  crash_id: row.crash_id, 
+  fatalities: row.fatalities, 
+  crash_sk: row.crash_sk
+});
+
+// fatality (fact)
+LOAD CSV WITH HEADERS FROM 'file:///fatality.csv' AS row
+MERGE (:fatality {
+  fatality_sk: row.fatality_sk, 
+  age: row.age
+});
+
+// 2/3: --- RELATIONSHIP LOADERS ---
+
+// IN_DATE
+LOAD CSV WITH HEADERS FROM 'file:///IN_DATE.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (d:date {date_sk: row.dst_value})
+MERGE (c)-[:IN_DATE]->(d);
+
+// CLASSIFIED_AS
+LOAD CSV WITH HEADERS FROM 'file:///CLASSIFIED_AS.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (ct:crash_type {crash_type_sk: row.dst_value})
+MERGE (c)-[:CLASSIFIED_AS]->(ct);
+
+// IN_EVENT
+LOAD CSV WITH HEADERS FROM 'file:///IN_EVENT.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (h:holiday {holiday_sk: row.dst_value})
+MERGE (c)-[:IN_EVENT]->(h);
+
+// IN_LOCATION
+LOAD CSV WITH HEADERS FROM 'file:///IN_LOCATION.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (l:lga {lga_sk: row.dst_value})
+MERGE (c)-[:IN_LOCATION]->(l);
+
+// IN_SA4
+LOAD CSV WITH HEADERS FROM 'file:///IN_SA4.csv' AS row
+MATCH (l:lga {lga_sk: row.src_value})
+MATCH (s:sa4 {sa4_sk: row.dst_value})
+MERGE (l)-[:IN_SA4]->(s);
+
+// IN_NRA 
+LOAD CSV WITH HEADERS FROM 'file:///IN_NRA.csv' AS row
+MATCH (s:sa4 {sa4_sk: row.src_value})
+MATCH (n:nra {nra_sk: row.dst_value})
+MERGE (s)-[:IN_NRA]->(n);
+
+// IN_STATE 
+LOAD CSV WITH HEADERS FROM 'file:///IN_STATE.csv' AS row
+MATCH (n:nra {nra_sk: row.src_value})
+MATCH (st:state {state_sk: row.dst_value})
+MERGE (n)-[:IN_STATE]->(st);
+
+// GENDER_IS
+LOAD CSV WITH HEADERS FROM 'file:///GENDER_IS.csv' AS row
+MATCH (f:fatality {fatality_sk: row.src_value})
+MATCH (g:gender {gender_sk: row.dst_value})
+MERGE (f)-[:GENDER_IS]->(g);
+
+// AGE_IS
+LOAD CSV WITH HEADERS FROM 'file:///AGE_IS.csv' AS row
+MATCH (f:fatality {fatality_sk: row.src_value})
+MATCH (ag:age_group {age_group_sk: row.dst_value})
+MERGE (f)-[:AGE_IS]->(ag);
+
+// ROAD_USER_IS 
+LOAD CSV WITH HEADERS FROM 'file:///ROAD_USER_IS.csv' AS row
+MATCH (f:fatality {fatality_sk: row.src_value})
+MATCH (ru:road_user {road_user_sk: row.dst_value})
+MERGE (f)-[:ROAD_USER_IS]->(ru);
+
+// IN_SPEED_LIMIT
+LOAD CSV WITH HEADERS FROM 'file:///IN_SPEED_LIMIT.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (s:speed_limit {speed_limit: row.dst_value})
+MERGE (c)-[:IN_SPEED_LIMIT]->(s);
+
+// DIED_IN 
+LOAD CSV WITH HEADERS FROM 'file:///DIED_IN.csv' AS row
+MATCH (f:fatality {fatality_sk: row.src_value})
+MATCH (c:crash {crash_sk: row.dst_value})
+MERGE (f)-[:DIED_IN]->(c);
+
+// INVOLVE_WITH
+LOAD CSV WITH HEADERS FROM 'file:///INVOLVE_WITH.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (i:involvement {involvement_sk: row.dst_value})
+MERGE (c)-[:INVOLVE_WITH]->(i);
+
+// IN_ROAD_TYPE
+LOAD CSV WITH HEADERS FROM 'file:///IN_ROAD_TYPE.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (r:road_type {road_type_sk: row.dst_value})
+MERGE (c)-[:IN_ROAD_TYPE]->(r);
+
+// IN_TIME 
+LOAD CSV WITH HEADERS FROM 'file:///IN_TIME.csv' AS row
+MATCH (c:crash {crash_sk: row.src_value})
+MATCH (t:time {hour: row.dst_value})
+MERGE (c)-[:IN_TIME]->(t);
+
+
+############################################
+# STOP THE COPY FOR THE LOADING RIGHT HERE #
+############################################
+
+// Queries for questions
+
+// 1. Find all crashes in WA from 2020-2024 where articulated trucks were involved and multiple fatalities (Number Fatalities>1) occurred.
+// For each crash, provide the road user, age of each road user, gender of each road user, LGA Name, month and year of the crash, and the total number of fatalities.
+
+MATCH (c:crash)-[:IN_LOCATION]->(lga:lga)
+      -[:IN_SA4]->(:sa4)-[:IN_NRA]->(:nra)-[:IN_STATE]->(s:state {state: "WA"}),
+      (c)-[:IN_DATE]->(d:date),
+      (c)-[:INVOLVE_WITH]->(inv:involvement)
+WHERE toInteger(d.year) >= 2020 AND toInteger(d.year) <= 2024
+  AND toLower(inv.articulated_truck) = "yes"
+  AND toInteger(c.fatalities) > 1
+WITH c, lga, d
+MATCH (f:fatality)-[:DIED_IN]->(c)
+MATCH (f)-[:GENDER_IS]->(g:gender)
+MATCH (f)-[:ROAD_USER_IS]->(ru:road_user)
+RETURN
+  c.crash_id AS crash_id,
+  ru.road_user AS road_user,
+  f.age AS age,
+  g.gender AS gender,
+  lga.lga AS lga_name,
+  d.month AS month,
+  d.year AS year,
+  c.fatalities AS total_fatalities
+ORDER BY d.year, d.month, c.crash_id, f.fatality_sk
+
+// 2. Find the maximum and minimum age for female and male motorcycle riders who were involved in fatal crashes during the Christmas Period or Easter Period in inner regional Australia.
+// Output the following information: gender, maximum age and minimum age. (Hint: Zero results is a meaningful result in itself.)
+
+// APOC LIB must be installed 
+
+MATCH (f:fatality)-[:GENDER_IS]->(g:gender)
+MATCH (f)-[:ROAD_USER_IS]->(ru:road_user)
+MATCH (f)-[:DIED_IN]->(c:crash)-[:IN_EVENT]->(h:holiday)
+MATCH (c)-[:IN_LOCATION]->(lga:lga)-[:IN_SA4]->(:sa4)-[:IN_NRA]->(nra:nra)
+WHERE (toLower(h.christmas) = "yes" OR toLower(h.easter) = "yes")
+  AND toLower(nra.nra) = "inner regional australia"
+  AND toLower(ru.road_user) = "motorcycle rider"
+  AND toLower(g.gender) IN ["male", "female"]
+RETURN
+  g.gender AS gender,
+  max(toInteger(f.age)) AS max_age,
+  min(toInteger(f.age)) AS min_age
+ORDER BY gender
