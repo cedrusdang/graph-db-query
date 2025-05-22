@@ -10,6 +10,7 @@ type crash {
   involvementIsInvolvement: involvement @relationship(type: "INVOLVEMENT_IS", direction: OUT)
   inTimeTime: time @relationship(type: "IN_TIME", direction: OUT)
   inSpeedLimitSpeedLimit: speed_limit @relationship(type: "IN_SPEED_LIMIT", direction: OUT)
+  inNraNra: nra @relationship(type: "IN_NRA", direction: OUT)
   fatalityInCrash: fatality @relationship(type: "IN_CRASH", direction: IN)
 }
 
@@ -50,7 +51,6 @@ type lga {
   crashInLga: crash @relationship(type: "IN_LGA", direction: IN)
   stateHasLga: state @relationship(type: "HAS_LGA", direction: IN)
   inSa4Sa4: sa4 @relationship(type: "IN_SA4", direction: OUT)
-  inNraNra: nra @relationship(type: "IN_NRA", direction: OUT)
 }
 
 type holiday {
@@ -108,7 +108,7 @@ type speed_limit {
 type nra {
   nra: 
   nra_sk: 
-  lgaInNra: lga @relationship(type: "IN_NRA", direction: IN)
+  crashInNra: crash @relationship(type: "IN_NRA", direction: IN)
 }
 
 type sa4 {

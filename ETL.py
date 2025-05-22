@@ -163,7 +163,7 @@ if __name__ == "__main__":
         "time": ["hour", "time_of_day"],
         "crash": ["crash_id","fatalities"],
         "fatality": ["fatality_sk", "age"],
-        "lga": ["lga","sa4","state","nra"],
+        "lga": ["lga","sa4","state"],
     }
     
     # Create dim tables and save them
@@ -187,9 +187,10 @@ if __name__ == "__main__":
         1:  ["HAS_LGA",        "state",     "state_sk",      "lga",          "lga_sk"],
         2:  ["IN_SA4",         "lga",       "lga_sk",        "sa4",          "sa4_sk"],
         3:  ["IN_STATE",       "sa4",       "sa4_sk",        "state",        "state_sk"],
-        4:  ["IN_NRA",         "lga",       "lga_sk",        "nra",          "nra_sk"],
+
 
         # Crash fact & dimension
+        4:  ["IN_NRA",         "crash",     "crash_sk",      "nra",          "nra_sk"],
         5:  ["IN_LGA",         "crash",     "crash_sk",      "lga",          "lga_sk"],
         6:  ["IN_DATE",        "crash",     "crash_sk",      "date",         "date_sk"],
         7:  ["CRASH_TYPE_IS",  "crash",     "crash_sk",      "crash_type",   "crash_type_sk"],

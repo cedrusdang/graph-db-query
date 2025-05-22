@@ -126,7 +126,7 @@ MATCH (b:state {state_sk: row.dst_value})
 MERGE (a)-[:IN_STATE]->(b);
 
 LOAD CSV WITH HEADERS FROM 'file:///IN_NRA.csv' AS row
-MATCH (a:lga {lga_sk: row.src_value})
+MATCH (a:crash {crash_sk: row.src_value})
 MATCH (b:nra {nra_sk: row.dst_value})
 MERGE (a)-[:IN_NRA]->(b);
 
@@ -228,7 +228,6 @@ RETURN
   c.fatalities AS total_fatalities
 ORDER BY d.year, d.month, c.crash_id, f.fatality_sk;
 
-
 // Question 2: 
 // Find the maximum and minimum age for female and male motorcycle riders who were involved in fatal crashes during the Christmas Period or Easter Period in inner regional Australia. 
 // Output the following information: gender, maximum age and minimum age.
@@ -236,7 +235,7 @@ ORDER BY d.year, d.month, c.crash_id, f.fatality_sk;
 MATCH (f:fatality)-[:GENDER_IS]->(g:gender)
 MATCH (f)-[:ROAD_USER_IS]->(ru:road_user)
 MATCH (f)-[:IN_CRASH]->(c:crash)-[:IN_EVENT]->(h:holiday)
-MATCH (c)-[:IN_LGA]->(lga:lga)-[:IN_NRA]->(nra:nra)
+MATCH (c)-[:IN_NRA]->(nra:nra)
 WHERE (toLower(h.christmas) = "yes" OR toLower(h.easter) = "yes")
   AND toLower(nra.nra) = "inner regional australia"
   AND toLower(ru.road_user) = "motorcycle rider"
@@ -246,7 +245,6 @@ RETURN
   max(toInteger(f.age)) AS max_age,
   min(toInteger(f.age)) AS min_age
 ORDER BY gender;
-
 
 // Question 3: 
 // How many young drivers (Age Group = '17_to_25') were involved in fatal crashes on weekends vs. weekdays in each state during 2024? 
@@ -273,7 +271,7 @@ ORDER BY state;
 MATCH (c:crash)-[:IN_LGA]->(lga:lga)-[:IN_SA4]->(sa4:sa4)-[:IN_STATE]->(state:state)
 MATCH (c)-[:IN_DATE]->(d:date)
 MATCH (c)-[:IN_ROAD_TYPE]->(rt:road_type)
-MATCH (lga)-[:IN_NRA]->(nra:nra)
+MATCH (c)-[:IN_NRA]->(nra:nra)
 WHERE toLower(state.state) = "wa"
   AND toLower(d.day_of_week) = "weekend"
   AND toLower(d.dayweek) = "friday"
@@ -288,7 +286,6 @@ RETURN DISTINCT sa4.sa4 AS sa4_name,
                 rt.road_type AS national_road_type,
                 c.crash_id AS crash_id
 ORDER BY sa4_name;
-
 
 // Question 5: 
 // Find the top 5 SA4 regions where the highest number of fatal crashes occur during peak hours (Time between 07:00-09:00 and 16:00-18:00). 
@@ -305,7 +302,6 @@ RETURN sa4_name,
 ORDER BY (Morning_Peak + Afternoon_Peak) DESC
 LIMIT 5;
 
-
 // Question 6: 
 // Find paths with a length of 3 between any two LGAs. 
 // Return the top 3 paths, including the starting LGA and ending LGA for each path. Order results alphabetically by starting LGA and then ending LGA.
@@ -316,7 +312,6 @@ WITH lga1.lga AS start_lga, lga2.lga AS end_lga, p
 ORDER BY start_lga, end_lga
 RETURN start_lga, end_lga, p
 LIMIT 3;
-
 
 // Question 7 (CITS5504 ONLY): 
 // Find all weekday fatal crashes involving pedestrians where either buses or heavy rigid trucks were present in speed zones less than 40 or greater than/equal to 100. 
@@ -376,7 +371,8 @@ ORDER BY state, crash_type;
 
 MATCH (f:fatality)-[:ROAD_USER_IS]->(ru:road_user)
 WHERE ru.road_user = 'Pedestrian' AND toInteger(f.age) <= 16
-MATCH (f)-[:IN_CRASH]->(c:crash)-[:IN_LGA]->(lga:lga)-[:IN_NRA]->(nra:nra)
+MATCH (f)-[:IN_CRASH]->(c:crash)-[:IN_LGA]->(lga:lga)
+MATCH (c)-[:IN_NRA]->(nra:nra)
 MATCH (c)-[:IN_DATE]->(d:date)
 WHERE d.dayweek IN ['Saturday', 'Sunday']
 MATCH (c)-[:IN_ROAD_TYPE]->(rt:road_type)
