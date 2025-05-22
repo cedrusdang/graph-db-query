@@ -1,0 +1,787 @@
+lga_sk,lga
+1,Adelaide
+2,Adelaide Hills
+3,Adelaide Hills
+4,Adelaide Plains
+5,Adelaide Plains
+6,Albany
+7,Albury
+8,Alexandrina
+9,Alice Springs
+10,Alpine
+11,Alpine
+12,Anangu Pitjantjatjara Yankunytjatjara
+13,Ararat
+14,Ararat
+15,Ararat
+16,Ararat
+17,Armadale
+18,Armadale
+19,Armidale
+20,Armidale
+21,Ashburton
+22,Augusta Margaret River
+23,Augusta Margaret River
+24,Ballarat
+25,Ballina
+26,Balonne
+27,Balonne
+28,Balranald
+29,Balranald
+30,Banana
+31,Banana
+32,Banyule
+33,Barcaldine
+34,Barcoo
+35,Barkly
+36,Barossa
+37,Barossa
+38,Barunga West
+39,Bass Coast
+40,Bassendean
+41,Bathurst
+42,Bathurst
+43,Baw Baw
+44,Baw Baw
+45,Bayside (NSW)
+46,Bayside (NSW)
+47,Bayside (Vic.)
+48,Bayswater
+49,Bega Valley
+50,Bellingen
+51,Bellingen
+52,Belmont
+53,Benalla
+54,Benalla
+55,Berri Barmera
+56,Berrigan
+57,Berrigan
+58,Beverley
+59,Blacktown
+60,Blacktown
+61,Bland
+62,Blayney
+63,Blayney
+64,Blue Mountains
+65,Blue Mountains
+66,Boddington
+67,Boddington
+68,Bogan
+69,Bogan
+70,Boroondara
+71,Bourke
+72,Boyup Brook
+73,Break O'Day
+74,Break O'Day
+75,Brewarrina
+76,Bridgetown-Greenbushes
+77,Brighton
+78,Brimbank
+79,Brimbank
+80,Brisbane
+81,Brisbane
+82,Brisbane
+83,Brisbane
+84,Brisbane
+85,Brisbane
+86,Brisbane
+87,Broken Hill
+88,Brookton
+89,Broome
+90,Broome
+91,Broomehill-Tambellup
+92,Bruce Rock
+93,Bulloo
+94,Buloke
+95,Bunbury
+96,Bundaberg
+97,Bundaberg
+98,Burdekin
+99,Burke
+100,Burnie
+101,Burnside
+102,Burwood
+103,Busselton
+104,Byron
+105,Cabonne
+106,Cabonne
+107,Cabonne
+108,Cairns
+109,Cambridge
+110,Camden
+111,Camden
+112,Campaspe
+113,Campbelltown (NSW)
+114,Campbelltown (SA)
+115,Canada Bay
+116,Canning
+117,Canterbury-Bankstown
+118,Canterbury-Bankstown
+119,Capel
+120,Cardinia
+121,Cardinia
+122,Carnamah
+123,Carnarvon
+124,Carpentaria
+125,Carrathool
+126,Carrathool
+127,Casey
+128,Cassowary Coast
+129,Cassowary Coast
+130,Ceduna
+131,Central Coast (NSW)
+132,Central Coast (NSW)
+133,Central Coast (Tas.)
+134,Central Darling
+135,Central Desert
+136,Central Goldfields
+137,Central Highlands (Qld)
+138,Central Highlands (Qld)
+139,Central Highlands (Qld)
+140,Central Highlands (Tas.)
+141,Cessnock
+142,Cessnock
+143,Chapman Valley
+144,Chapman Valley
+145,Charles Sturt
+146,Charters Towers
+147,Charters Towers
+148,Charters Towers
+149,Chittering
+150,Chittering
+151,Circular Head
+152,Circular Head
+153,Clare and Gilbert Valleys
+154,Clare and Gilbert Valleys
+155,Claremont
+156,Clarence
+157,Clarence Valley
+158,Clarence Valley
+159,Cleve
+160,Cloncurry
+161,Cobar
+162,Cobar
+163,Cockburn
+164,Coffs Harbour
+165,Colac Otway
+166,Colac Otway
+167,Collie
+168,Coober Pedy
+169,Cook
+170,Cook
+171,Coolamon
+172,Coolamon
+173,Coolgardie
+174,Coomalie 
+175,Coonamble
+176,Coorong
+177,Coorong
+178,Cootamundra-Gundagai
+179,Cootamundra-Gundagai
+180,Copper Coast
+181,Corangamite
+182,Corangamite
+183,Corrigin
+184,Cottesloe 
+185,Cowra
+186,Cowra
+187,Cranbrook
+188,Croydon
+189,Cuballing
+190,Cue
+191,Cumberland
+192,Cunderdin
+193,Dalwallinu
+194,Dandaragan
+195,Dardanup
+196,Darebin
+197,Darebin
+198,Darwin
+199,Denmark
+200,Derby-West Kimberley
+201,Derwent Valley
+202,Derwent Valley
+203,Devonport
+204,Donnybrook-Balingup
+205,Doomadgee
+206,Dorset
+207,Douglas
+208,Douglas
+209,Dowerin
+210,Dubbo
+211,Dubbo
+212,Dumbleyung
+213,Dundas
+214,Dungog
+215,Dungog
+216,East Arnhem
+217,East Gippsland
+218,East Gippsland
+219,East Pilbara
+220,Edward River
+221,Elliston
+222,Esperance
+223,Esperance
+224,Etheridge
+225,Eurobodalla
+226,Eurobodalla
+227,Exmouth
+228,Fairfield
+229,Fairfield
+230,Federation
+231,Federation
+232,Federation
+233,Flinders (Qld)
+234,Flinders (Tas.)
+235,Flinders Ranges
+236,Forbes
+237,Franklin Harbour
+238,Franklin Harbour
+239,Frankston
+240,Fraser Coast
+241,Fraser Coast
+242,Fraser Coast
+243,Fremantle
+244,Gannawarra
+245,Gawler
+246,George Town
+247,Georges River
+248,Gilgandra
+249,Gingin
+250,Gingin
+251,Gladstone
+252,Gladstone
+253,Glamorgan-Spring Bay
+254,Glen Eira
+255,Glen Innes Severn
+256,Glen Innes Severn
+257,Glenelg
+258,Glenorchy
+259,Gnowangerup
+260,Gnowangerup
+261,Gold Coast
+262,Gold Coast
+263,Golden Plains
+264,Golden Plains
+265,Goomalling
+266,Goondiwindi
+267,Gosnells
+268,Goulburn Mulwaree
+269,Goulburn Mulwaree
+270,Goyder
+271,Goyder
+272,Grant
+273,Greater Bendigo
+274,Greater Dandenong
+275,Greater Geelong
+276,Greater Geelong
+277,Greater Geraldton
+278,Greater Geraldton
+279,Greater Hume
+280,Greater Hume
+281,Greater Shepparton
+282,Greater Shepparton
+283,Griffith
+284,Gunnedah
+285,Gwydir
+286,Gympie
+287,Gympie
+288,Halls Creek
+289,Harvey
+290,Hawkesbury
+291,Hawkesbury
+292,Hawkesbury
+293,Hawkesbury
+294,Hay
+295,Hay
+296,Hepburn
+297,Hilltops
+298,Hilltops
+299,Hinchinbrook
+300,Hinchinbrook
+301,Hindmarsh
+302,Hobart
+303,Hobsons Bay
+304,Holdfast Bay
+305,Hope Vale
+306,Hornsby
+307,Hornsby
+308,Hornsby
+309,Hornsby
+310,Hornsby
+311,Horsham
+312,Hume
+313,Hunters Hill
+314,Huon Valley
+315,Indigo
+316,Inner West
+317,Inner West
+318,Inverell
+319,Ipswich
+320,Ipswich
+321,Irwin
+322,Isaac
+323,Isaac
+324,Jerramungup
+325,Joondalup
+326,Junee
+327,Junee
+328,Kalamunda
+329,Kalamunda
+330,Kalamunda
+331,Kalgoorlie-Boulder
+332,Kalgoorlie-Boulder
+333,Kangaroo Island
+334,Karoonda East Murray
+335,Karratha
+336,Karratha
+337,Katanning
+338,Katherine
+339,Kellerberrin
+340,Kempsey
+341,Kempsey
+342,Kent
+343,Kentish
+344,Kiama
+345,Kiama
+346,Kimba
+347,King Island
+348,Kingborough
+349,Kingborough
+350,Kingston (SA)
+351,Kingston (SA)
+352,Kingston (Vic.)
+353,Kingston (Vic.)
+354,Knox
+355,Kojonup
+356,Kondinin
+357,Kondinin
+358,Ku-ring-gai
+359,Kulin
+360,Kwinana
+361,Kyogle
+362,Kyogle
+363,Lachlan
+364,Lachlan
+365,Lake Grace
+366,Lake Grace
+367,Lake Macquarie
+368,Lake Macquarie
+369,Lane Cove
+370,Latrobe (Tas.)
+371,Latrobe (Vic.)
+372,Launceston
+373,Launceston
+374,Leeton
+375,Leonora
+376,Light
+377,Light
+378,Light
+379,Lismore
+380,Litchfield
+381,Lithgow
+382,Lithgow
+383,Liverpool
+384,Liverpool
+385,Liverpool Plains
+386,Livingstone
+387,Livingstone
+388,Livingstone
+389,Lockhart
+390,Lockhart
+391,Lockhart River
+392,Lockyer Valley
+393,Lockyer Valley
+394,Loddon
+395,Loddon
+396,Loddon
+397,Logan
+398,Logan
+399,Longreach
+400,Lower Eyre Peninsula
+401,Loxton Waikerie
+402,MacDonnell
+403,MacDonnell
+404,Macedon Ranges
+405,Macedon Ranges
+406,Mackay
+407,Mackay
+408,Maitland
+409,Maitland
+410,Maitland
+411,Mandurah
+412,Mandurah
+413,Manjimup
+414,Manjimup
+415,Manningham
+416,Manningham
+417,Mansfield
+418,Maranoa
+419,Maranoa
+420,Maranoa
+421,Mareeba
+422,Mareeba
+423,Mareeba
+424,Mareeba
+425,Maribyrnong
+426,Marion
+427,Maroondah
+428,McKinlay
+429,Meander Valley
+430,Meander Valley
+431,Meekatharra
+432,Melbourne
+433,Melton
+434,Melton
+435,Melton
+436,Melville
+437,Menzies
+438,Merredin
+439,Merredin
+440,Merri-bek
+441,Merri-bek
+442,Mid Murray
+443,Mid Murray
+444,Mid-Coast
+445,Mid-Coast
+446,Mid-Coast
+447,Mid-Western
+448,Mid-Western
+449,Mildura
+450,Mildura
+451,Mingenew
+452,Mitcham
+453,Mitchell
+454,Mitchell
+455,Mitchell
+456,Moira
+457,Moira
+458,Monash
+459,Monash
+460,Moonee Valley
+461,Moonee Valley
+462,Moora
+463,Moora
+464,Moorabool
+465,Moorabool
+466,Moorabool
+467,Morawa
+468,Moree Plains
+469,Moree Plains
+470,Moreton Bay
+471,Moreton Bay
+472,Moreton Bay
+473,Moreton Bay
+474,Mornington
+475,Mornington Peninsula
+476,Mornington Peninsula
+477,Mosman
+478,Mosman Park
+479,Mount Alexander
+480,Mount Barker
+481,Mount Barker
+482,Mount Gambier
+483,Mount Isa
+484,Mount Isa
+485,Mount Magnet
+486,Mount Marshall
+487,Mount Remarkable
+488,Moyne
+489,Moyne
+490,Mundaring
+491,Mundaring
+492,Murray
+493,Murray
+494,Murray
+495,Murray Bridge
+496,Murray River
+497,Murray River
+498,Murrindindi
+499,Murrindindi
+500,Murrumbidgee
+501,Murrumbidgee
+502,Murweh
+503,Muswellbrook
+504,Muswellbrook
+505,Nambucca Valley
+506,Nambucca Valley
+507,Nannup
+508,Naracoorte Lucindale
+509,Narrabri
+510,Narrabri
+511,Narrandera
+512,Narrogin
+513,Narromine
+514,Nedlands
+515,Newcastle
+516,Ngaanyatjarraku
+517,Nillumbik
+518,Nillumbik
+519,Noosa
+520,Noosa
+521,North Burnett
+522,North Sydney
+523,Northam
+524,Northampton
+525,Northern Areas
+526,Northern Beaches
+527,Northern Beaches
+528,Northern Grampians
+529,Northern Grampians
+530,Northern Midlands
+531,Northern Midlands
+532,Northern Peninsula Area
+533,Norwood Payneham and St Peters
+534,Nungarin
+535,Oberon
+536,Oberon
+537,Onkaparinga
+538,Onkaparinga
+539,Orange
+540,Orroroo Carrieton
+541,Palm Island
+542,Palmerston
+543,Parkes
+544,Parramatta
+545,Parramatta
+546,Penrith
+547,Penrith
+548,Penrith
+549,Perenjori
+550,Perth
+551,Pingelly
+552,Plantagenet
+553,Playford
+554,Playford
+555,Pormpuraaw
+556,Port Adelaide Enfield
+557,Port Adelaide Enfield
+558,Port Augusta
+559,Port Hedland
+560,Port Hedland
+561,Port Lincoln
+562,Port Macquarie-Hastings
+563,Port Macquarie-Hastings
+564,Port Phillip
+565,Port Pirie
+566,Port Stephens
+567,Port Stephens
+568,Port Stephens
+569,Prospect
+570,Pyrenees
+571,Pyrenees
+572,Quairading
+573,Queanbeyan-Palerang
+574,Queanbeyan-Palerang
+575,Queanbeyan-Palerang
+576,Quilpie
+577,Randwick
+578,Randwick
+579,Ravensthorpe
+580,Redland
+581,Redland
+582,Redland
+583,Renmark Paringa
+584,Richmond
+585,Richmond Valley
+586,Richmond Valley
+587,Richmond Valley
+588,Robe
+589,Rockhampton
+590,Rockhampton
+591,Rockingham
+592,Roper Gulf
+593,Ryde
+594,Salisbury
+595,Sandstone
+596,Scenic Rim
+597,Scenic Rim
+598,Scenic Rim
+599,Scenic Rim
+600,Serpentine-Jarrahdale
+601,Serpentine-Jarrahdale
+602,Shark Bay
+603,Shellharbour
+604,Shellharbour
+605,Shoalhaven
+606,Shoalhaven
+607,Singleton
+608,Singleton
+609,Snowy Monaro
+610,Snowy Monaro
+611,Snowy Valleys
+612,Snowy Valleys
+613,Somerset
+614,Somerset
+615,Somerset
+616,Sorell
+617,Sorell
+618,South Burnett
+619,South Burnett
+620,South Gippsland
+621,South Gippsland
+622,South Perth
+623,Southern Downs
+624,Southern Downs
+625,Southern Grampians
+626,Southern Grampians
+627,Southern Mallee
+628,Southern Mallee
+629,Southern Midlands
+630,Stirling
+631,Stirling
+632,Stonnington
+633,Stonnington
+634,Strathbogie
+635,Strathfield
+636,Strathfield
+637,Streaky Bay
+638,Subiaco
+639,Sunshine Coast
+640,Sunshine Coast
+641,Sunshine Coast
+642,Surf Coast
+643,Surf Coast
+644,Sutherland
+645,Sutherland
+646,Sutherland
+647,Sutherland
+648,Swan
+649,Swan
+650,Swan Hill
+651,Sydney
+652,Sydney
+653,Tablelands
+654,Tablelands
+655,Tamworth
+656,Tamworth
+657,Tasman
+658,Tatiara
+659,Tatiara
+660,Tea Tree Gully
+661,Temora
+662,Tenterfield
+663,The Hills
+664,The Hills
+665,The Hills
+666,The Hills
+667,Toodyay
+668,Toowoomba
+669,Toowoomba
+670,Toowoomba
+671,Townsville
+672,Towong
+673,Towong
+674,Trayning
+675,Tumby Bay
+676,Tweed
+677,Tweed
+678,Unincorporated ACT
+679,Unincorporated ACT
+680,Unincorporated NSW
+681,Unincorporated NSW
+682,Unincorporated NT
+683,Unincorporated NT
+684,Unincorporated NT
+685,Unincorporated SA
+686,Unincorporated SA
+687,Unincorporated Vic
+688,Unincorporated Vic
+689,Unley
+690,Upper Hunter
+691,Upper Hunter
+692,Upper Lachlan
+693,Upper Lachlan
+694,Uralla
+695,Uralla
+696,Victor Harbor
+697,Victoria Daly
+698,Victoria Daly
+699,Victoria Park
+700,Victoria Plains
+701,Vincent
+702,Wagait
+703,Wagga Wagga
+704,Wagga Wagga
+705,Wagin
+706,Wakefield
+707,Wakefield
+708,Walcha
+709,Walgett
+710,Walgett
+711,Walkerville
+712,Wandering
+713,Wangaratta
+714,Wangaratta
+715,Wanneroo
+716,Wanneroo
+717,Waratah-Wynyard
+718,Waroona
+719,Warren
+720,Warrnambool
+721,Warrumbungle
+722,Warrumbungle
+723,Wattle Range
+724,Waverley
+725,Weddin
+726,Weipa
+727,Wellington
+728,Wellington
+729,Wentworth
+730,Wentworth
+731,West Arnhem
+732,West Arnhem
+733,West Arthur
+734,West Coast
+735,West Daly
+736,West Daly
+737,West Tamar
+738,West Tamar
+739,West Torrens
+740,West Wimmera
+741,Western Downs
+742,Western Downs
+743,Western Downs
+744,Westonia
+745,Whitehorse
+746,Whitehorse
+747,Whitsunday
+748,Whitsunday
+749,Whittlesea
+750,Whittlesea
+751,Whyalla
+752,Wickepin
+753,Wickepin
+754,Williams
+755,Willoughby
+756,Wingecarribee
+757,Wingecarribee
+758,Wodonga
+759,Wollondilly
+760,Wollondilly
+761,Wollondilly
+762,Wollondilly
+763,Wollongong
+764,Wollongong
+765,Wongan-Ballidu
+766,Wongan-Ballidu
+767,Woodanilling
+768,Woollahra
+769,Wudinna
+770,Wudinna
+771,Wyndham
+772,Wyndham
+773,Wyndham-East Kimberley
+774,Yankalilla
+775,Yarra
+776,Yarra Ranges
+777,Yarra Ranges
+778,Yarrabah
+779,Yarriambiack
+780,Yarriambiack
+781,Yass Valley
+782,Yass Valley
+783,Yilgarn
+784,York
+785,Yorke Peninsula
+786,Yorke Peninsula
