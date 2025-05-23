@@ -263,7 +263,6 @@ RETURN state, weekends, weekdays,
        CASE WHEN size(ages) > 0 THEN round(reduce(acc=0.0, a IN ages | acc + toFloat(a))/size(ages),2) ELSE null END AS avg_age
 ORDER BY state;
 
-
 // Question 4: 
 // Identify all crashes in WA that occurred Friday (but categorised as a weekend) and resulted in multiple deaths, with victims being both male and female. 
 // For each crash, output the SA4 name, national remoteness areas, and national road type.
@@ -313,7 +312,7 @@ ORDER BY start_lga, end_lga
 RETURN start_lga, end_lga, p
 LIMIT 3;
 
-// Question 7 (CITS5504 ONLY): 
+// Question 7: 
 // Find all weekday fatal crashes involving pedestrians where either buses or heavy rigid trucks were present in speed zones less than 40 or greater than/equal to 100. 
 // Group these crashes by unique combinations of time of day, age group, vehicle type (bus or heavy rigid truck), and speed limitation. 
 // For each group, count the number of crashes that occurred. Output a table showing time of day, age group, vehicle type, crash count, and speed limitation, sorted first by time of day (ascending) and then by age group (ascending).
@@ -385,3 +384,82 @@ RETURN
     ru.road_user AS road_user_type
 ORDER BY remoteness_area, road_type, lga_name, crash_id
 LIMIT 5;
+
+
+############################
+# DATA SCIENCE CYPHER CODE #
+############################
+
+// Task for GDS:
+// Identify clusters of road fatalities that share similar characteristics across age group, gender, road user type, speed limit, and crash type using graph-based community detection.
+
+// 1. Project the in-memory GDS graph using Cypher projection (include all fatality and dimension nodes)
+CALL gds.graph.project.cypher(
+  'fatality-gds-cluster-all',
+  // Node projection
+  '
+    MATCH (f:fatality)
+    RETURN id(f) AS id
+    UNION
+    MATCH (f:fatality)-[:AGE_IS]->(ag:age_group)
+    RETURN id(ag) AS id
+    UNION
+    MATCH (f:fatality)-[:GENDER_IS]->(g:gender)
+    RETURN id(g) AS id
+    UNION
+    MATCH (f:fatality)-[:ROAD_USER_IS]->(ru:road_user)
+    RETURN id(ru) AS id
+    UNION
+    MATCH (f:fatality)-[:IN_SPEED_LIMIT]->(sl:speed_limit)
+    RETURN id(sl) AS id
+    UNION
+    MATCH (f:fatality)-[:IN_CRASH]->(c:crash)-[:CRASH_TYPE_IS]->(ct:crash_type)
+    RETURN id(ct) AS id
+  ',
+  // Relationship projection
+  '
+    MATCH (f:fatality)-[:AGE_IS]->(ag:age_group)
+    RETURN id(f) AS source, id(ag) AS target, "AGE_IS" AS type
+    UNION
+    MATCH (f:fatality)-[:GENDER_IS]->(g:gender)
+    RETURN id(f) AS source, id(g) AS target, "GENDER_IS" AS type
+    UNION
+    MATCH (f:fatality)-[:ROAD_USER_IS]->(ru:road_user)
+    RETURN id(f) AS source, id(ru) AS target, "ROAD_USER_IS" AS type
+    UNION
+    MATCH (f:fatality)-[:IN_SPEED_LIMIT]->(sl:speed_limit)
+    RETURN id(f) AS source, id(sl) AS target, "IN_SPEED_LIMIT" AS type
+    UNION
+    MATCH (f:fatality)-[:IN_CRASH]->(c:crash)-[:CRASH_TYPE_IS]->(ct:crash_type)
+    RETURN id(f) AS source, id(ct) AS target, "CRASH_TYPE_IS" AS type
+  '
+)
+YIELD graphName, nodeCount, relationshipCount;
+
+
+// 2. Run Louvain community detection and write the result to the 'communityId' property
+CALL gds.louvain.write('fatality-gds-cluster-all', {
+  writeProperty: 'communityId'
+})
+YIELD communityCount, modularity, writeMillis;
+
+// 3. Summarize the number of fatalities in each detected cluster
+MATCH (f:fatality)
+WHERE f.communityId IS NOT NULL
+RETURN f.communityId AS cluster, count(*) AS size
+ORDER BY size DESC;
+
+// 4. Retrieve 5 sample fatalities from each of the two largest clusters (10496, 10497)
+MATCH (f:fatality)
+WHERE f.communityId = 10496
+RETURN f.communityId AS cluster, f.fatality_sk
+ORDER BY f.fatality_sk
+LIMIT 5
+
+UNION ALL
+
+MATCH (f:fatality)
+WHERE f.communityId = 10497
+RETURN f.communityId AS cluster, f.fatality_sk
+ORDER BY f.fatality_sk
+LIMIT 5
